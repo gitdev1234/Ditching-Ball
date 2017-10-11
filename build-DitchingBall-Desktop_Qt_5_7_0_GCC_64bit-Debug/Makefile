@@ -49,9 +49,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../DitchingBall/main.cpp \
-		../DitchingBall/src/Block.cpp 
+		../DitchingBall/src/Block.cpp \
+		../DitchingBall/src/Player.cpp 
 OBJECTS       = main.o \
-		Block.o
+		Block.o \
+		Player.o
 DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/common/unix.conf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/common/linux.conf \
@@ -199,8 +201,10 @@ DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/exceptions.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/yacc.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/lex.prf \
-		../DitchingBall/DitchingBall.pro ../DitchingBall/include/Block.h ../DitchingBall/main.cpp \
-		../DitchingBall/src/Block.cpp
+		../DitchingBall/DitchingBall.pro ../DitchingBall/include/Block.h \
+		../DitchingBall/include/Player.h ../DitchingBall/main.cpp \
+		../DitchingBall/src/Block.cpp \
+		../DitchingBall/src/Player.cpp
 QMAKE_TARGET  = DitchingBall
 DESTDIR       = 
 TARGET        = DitchingBall
@@ -525,8 +529,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../DitchingBall/include/Block.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../DitchingBall/main.cpp ../DitchingBall/src/Block.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../DitchingBall/include/Block.h ../DitchingBall/include/Player.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../DitchingBall/main.cpp ../DitchingBall/src/Block.cpp ../DitchingBall/src/Player.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -569,8 +573,11 @@ compiler_clean:
 main.o: ../DitchingBall/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../DitchingBall/main.cpp
 
-Block.o: ../DitchingBall/src/Block.cpp 
+Block.o: ../DitchingBall/src/Block.cpp ../DitchingBall/include/Block.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Block.o ../DitchingBall/src/Block.cpp
+
+Player.o: ../DitchingBall/src/Player.cpp ../DitchingBall/include/Player.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Player.o ../DitchingBall/src/Player.cpp
 
 ####### Install
 

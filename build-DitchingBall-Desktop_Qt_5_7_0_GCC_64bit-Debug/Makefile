@@ -48,8 +48,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../DitchingBall/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../DitchingBall/main.cpp \
+		../DitchingBall/Block.cpp 
+OBJECTS       = main.o \
+		Block.o
 DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/common/unix.conf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/common/linux.conf \
@@ -181,6 +183,7 @@ DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/qt_config.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_post.prf \
+		../DitchingBall/.qmake.stash \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/default_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/resolve_config.prf \
@@ -196,7 +199,8 @@ DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/exceptions.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/yacc.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/lex.prf \
-		../DitchingBall/DitchingBall.pro  ../DitchingBall/main.cpp
+		../DitchingBall/DitchingBall.pro ../DitchingBall/Block.h ../DitchingBall/main.cpp \
+		../DitchingBall/Block.cpp
 QMAKE_TARGET  = DitchingBall
 DESTDIR       = 
 TARGET        = DitchingBall
@@ -339,6 +343,7 @@ Makefile: ../DitchingBall/DitchingBall.pro /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/qt_config.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/default_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/resolve_config.prf \
@@ -488,6 +493,7 @@ Makefile: ../DitchingBall/DitchingBall.pro /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs
 /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/qt_config.prf:
 /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/default_pre.prf:
 /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/resolve_config.prf:
@@ -519,7 +525,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../DitchingBall/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../DitchingBall/Block.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../DitchingBall/main.cpp ../DitchingBall/Block.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -561,6 +568,9 @@ compiler_clean:
 
 main.o: ../DitchingBall/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../DitchingBall/main.cpp
+
+Block.o: ../DitchingBall/Block.cpp ../DitchingBall/Block.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Block.o ../DitchingBall/Block.cpp
 
 ####### Install
 

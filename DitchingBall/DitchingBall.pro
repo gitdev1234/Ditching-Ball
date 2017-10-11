@@ -13,4 +13,5 @@ SOURCES += main.cpp \
     src/Block.cpp
 
 HEADERS += \
-    include/Block.h
+    include/Block.h \
+    include/types.h

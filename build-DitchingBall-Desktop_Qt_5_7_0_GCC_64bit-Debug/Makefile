@@ -202,7 +202,8 @@ DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/yacc.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/lex.prf \
 		../DitchingBall/DitchingBall.pro ../DitchingBall/include/Block.h \
-		../DitchingBall/include/Player.h ../DitchingBall/main.cpp \
+		../DitchingBall/include/Player.h \
+		../DitchingBall/include/catch.hpp ../DitchingBall/main.cpp \
 		../DitchingBall/src/Block.cpp \
 		../DitchingBall/src/Player.cpp
 QMAKE_TARGET  = DitchingBall
@@ -529,7 +530,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../DitchingBall/include/Block.h ../DitchingBall/include/Player.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../DitchingBall/include/Block.h ../DitchingBall/include/Player.h ../DitchingBall/include/catch.hpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../DitchingBall/main.cpp ../DitchingBall/src/Block.cpp ../DitchingBall/src/Player.cpp $(DISTDIR)/
 
 
@@ -570,7 +571,7 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../DitchingBall/main.cpp 
+main.o: ../DitchingBall/main.cpp ../DitchingBall/include/catch.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../DitchingBall/main.cpp
 
 Block.o: ../DitchingBall/src/Block.cpp ../DitchingBall/include/Block.h

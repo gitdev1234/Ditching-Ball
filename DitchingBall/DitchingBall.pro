@@ -15,4 +15,5 @@ SOURCES += main.cpp \
 
 HEADERS += \
     include/Block.h \
-    include/Player.h
+    include/Player.h \
+    include/catch.hpp

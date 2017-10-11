@@ -6,11 +6,12 @@
  * @version 1.0
  */
 
-#include <iostream>
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "include/catch.hpp"
+#include "include/Block.h"
+#include "include/Player.h"
 
-using namespace std;
 
-
-int main() {
-    cout << "Hello World!" << endl;
+TEST_CASE( "Testcase 1" ) {
+    REQUIRE( 1 == 1 );
 }

@@ -17,8 +17,6 @@ class Block {
         /* --- constructors / destructors --- */
         Block() {};
 
-        /* --- constructors / destructors --- */
-
         /* --- miscellaneous --- */
 
         /* --- getter / setter --- */
@@ -27,6 +25,7 @@ class Block {
 
     private:
         int example;
+        struct
 
 };
 

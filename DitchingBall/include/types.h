@@ -6,4 +6,9 @@ struct Point{
     double y;
 };
 
+enum Blocktype{
+    Ball, Player, Obstacle;
+
+};
+
 #endif // TYPES_H

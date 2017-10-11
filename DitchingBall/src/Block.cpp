@@ -9,6 +9,4 @@
 
 #include "include/Block.h"
 
-Block::Block() {
 
-}

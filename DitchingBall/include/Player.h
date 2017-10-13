@@ -17,7 +17,12 @@ using namespace std;
 class Player {
     public:
         /* --- constructors / destructors --- */
-        Player() {};
+
+        // standard-constructor
+        Player (int lifesUntilDeath_, string name_);
+
+        // copy-constructor
+        Player (const Player& other_);
 
         /* --- miscellaneous --- */
 

@@ -37,7 +37,6 @@ class Player {
         int lifesUntilDeath;
         string name;
 
-
 };
 
 

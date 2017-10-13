@@ -30,7 +30,7 @@ TEST_CASE("Test constructors of Player class") {
 
         SECTION("copy-constructor") {
             Player P2(P);
-            REQUIRE_FALSE(&P==&P2);
+            REQUIRE_FALSE(&P == &P2);
             REQUIRE(P.getLifesUntilDeath() == P2.getLifesUntilDeath());
             REQUIRE(P.getName() == P2.getName());
         }

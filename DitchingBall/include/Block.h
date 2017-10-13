@@ -17,6 +17,7 @@ using namespace std;
 class Block {
     public:
         /* --- constructors / destructors --- */
+        Block() {};
 
         /* --- miscellaneous --- */
 

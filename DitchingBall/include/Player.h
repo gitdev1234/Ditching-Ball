@@ -10,16 +10,16 @@
 #define PLAYER_H
 
 #include <iostream>
+#include "types.h"
 
 using namespace std;
-
 
 class Player {
     public:
         /* --- constructors / destructors --- */
 
         // standard-constructor
-        Player (int lifesUntilDeath_, string name_);
+        Player (int lifesUntilDeath_ = DEFAULT_LIFES_UNTIL_DEATH, const string &name_ = "");
 
         // copy-constructor
         Player (const Player& other_);
@@ -31,7 +31,7 @@ class Player {
         string getName()         const         {return name;           };
 
         void setLifesUntilDeath (int    lifesUntilDeath_) {lifesUntilDeath = lifesUntilDeath_; };
-        void setName            (string            name_) {name            = name_;            };
+        void setName            (const string&     name_) {name            = name_;            };
 
     private:
         int lifesUntilDeath;

@@ -13,7 +13,7 @@ struct Point{
 
 /* ------- ENUMS ------- */
 enum Blocktype {
-    Ball, Player, Obstacle
+    btBall, btPlayer, btObstacle
 };
 
 #endif // TYPES_H

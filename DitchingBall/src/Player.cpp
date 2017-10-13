@@ -21,7 +21,7 @@
  * @param name_ name of this player
  * This is the standard constructor of class Player. It initializes all attributes.
  */
-Player::Player(int lifesUntilDeath_, string name_)
+Player::Player(int lifesUntilDeath_ , const string& name_)
     : lifesUntilDeath ( lifesUntilDeath_),
       name            ( name_           )
 
@@ -35,4 +35,4 @@ Player::Player(int lifesUntilDeath_, string name_)
  */
 Player::Player(const Player &other_) {
     *this = other_;
-};
+}

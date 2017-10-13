@@ -15,7 +15,8 @@ INCLUDEPATH += test/
 SOURCES += main.cpp \
     src/Block.cpp \
     src/Player.cpp \
-    test/BlockTest.cpp
+    test/BlockTest.cpp \
+    test/PlayerTest.cpp
 
 HEADERS += \
     include/Block.h \

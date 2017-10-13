@@ -1,34 +1,39 @@
 /**
- * Block.cpp
- * Purpose: define Block class
+ * Player.cpp
+ * Purpose: define Player class
  *
  * @author Wall.Of.Death, gitdev42
  * @version 1.0
  */
 
-#ifndef BLOCK_H
-#define BLOCK_H
+#ifndef PLAYER_H
+#define PLAYER_H
+
+#include <iostream>
 
 using namespace std;
 
 
-class Block {
+class Player {
     public:
         /* --- constructors / destructors --- */
-        Block() {};
-
-        /* --- constructors / destructors --- */
+        Player() {};
 
         /* --- miscellaneous --- */
 
         /* --- getter / setter --- */
-        int getExample() const         {return example;} ;
-        void setExample (int example_) {example = example_;} ;
+        int getLifesUntilDeath() const         {return lifesUntilDeath;};
+        string getName()         const         {return name;           };
+
+        void setLifesUntilDeath (int    lifesUntilDeath_) {lifesUntilDeath = lifesUntilDeath_; };
+        void setName            (string            name_) {name            = name_;            };
 
     private:
-        int example;
+        int lifesUntilDeath;
+        string name;
+
 
 };
 
 
-#endif // BLOCK_H
+#endif // PLAYER_H

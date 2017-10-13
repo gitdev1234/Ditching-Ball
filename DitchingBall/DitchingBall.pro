@@ -9,9 +9,13 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
+INCLUDEPATH += include/
+INCLUDEPATH += test/
+
 SOURCES += main.cpp \
     src/Block.cpp \
-    src/Player.cpp
+    src/Player.cpp \
+    test/BlockTest.cpp
 
 HEADERS += \
     include/Block.h \

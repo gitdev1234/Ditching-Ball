@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_QML_DEBUG -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../DitchingBall -I. -I/home/anon/Qt5.7.0/5.7/gcc_64/include -I/home/anon/Qt5.7.0/5.7/gcc_64/include/QtCore -I. -I/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../DitchingBall -I. -I../DitchingBall/include -I../DitchingBall/test -I/home/anon/Qt5.7.0/5.7/gcc_64/include -I/home/anon/Qt5.7.0/5.7/gcc_64/include/QtCore -I. -I/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/anon/Qt5.7.0/5.7/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -50,10 +50,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../DitchingBall/main.cpp \
 		../DitchingBall/src/Block.cpp \
-		../DitchingBall/src/Player.cpp 
+		../DitchingBall/src/Player.cpp \
+		../DitchingBall/test/BlockTest.cpp 
 OBJECTS       = main.o \
 		Block.o \
-		Player.o
+		Player.o \
+		BlockTest.o
 DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/common/unix.conf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/common/linux.conf \
@@ -203,9 +205,12 @@ DIST          = /home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/anon/Qt5.7.0/5.7/gcc_64/mkspecs/features/lex.prf \
 		../DitchingBall/DitchingBall.pro ../DitchingBall/include/Block.h \
 		../DitchingBall/include/Player.h \
-		../DitchingBall/include/catch.hpp ../DitchingBall/main.cpp \
+		../DitchingBall/include/catch.hpp \
+		../DitchingBall/include/types.h \
+		../DitchingBall/include/Player.h ../DitchingBall/main.cpp \
 		../DitchingBall/src/Block.cpp \
-		../DitchingBall/src/Player.cpp
+		../DitchingBall/src/Player.cpp \
+		../DitchingBall/test/BlockTest.cpp
 QMAKE_TARGET  = DitchingBall
 DESTDIR       = 
 TARGET        = DitchingBall
@@ -530,8 +535,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../DitchingBall/include/Block.h ../DitchingBall/include/Player.h ../DitchingBall/include/catch.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../DitchingBall/main.cpp ../DitchingBall/src/Block.cpp ../DitchingBall/src/Player.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../DitchingBall/include/Block.h ../DitchingBall/include/Player.h ../DitchingBall/include/catch.hpp ../DitchingBall/include/types.h ../DitchingBall/include/Player.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../DitchingBall/main.cpp ../DitchingBall/src/Block.cpp ../DitchingBall/src/Player.cpp ../DitchingBall/test/BlockTest.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -574,11 +579,17 @@ compiler_clean:
 main.o: ../DitchingBall/main.cpp ../DitchingBall/include/catch.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../DitchingBall/main.cpp
 
-Block.o: ../DitchingBall/src/Block.cpp ../DitchingBall/include/Block.h
+Block.o: ../DitchingBall/src/Block.cpp ../DitchingBall/include/Block.h \
+		../DitchingBall/include/types.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Block.o ../DitchingBall/src/Block.cpp
 
 Player.o: ../DitchingBall/src/Player.cpp ../DitchingBall/include/Player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Player.o ../DitchingBall/src/Player.cpp
+
+BlockTest.o: ../DitchingBall/test/BlockTest.cpp ../DitchingBall/include/catch.hpp \
+		../DitchingBall/include/Block.h \
+		../DitchingBall/include/types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BlockTest.o ../DitchingBall/test/BlockTest.cpp
 
 ####### Install
 

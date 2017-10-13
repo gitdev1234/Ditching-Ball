@@ -17,23 +17,22 @@ using namespace std;
 class Block {
     public:
         /* --- constructors / destructors --- */
-        Block() {};
 
         /* --- miscellaneous --- */
 
         /* --- getter / setter --- */
-        int getExample() const                  {return example;} ;
-        void setExample (int example_)          {example = example_;} ;
-        int getDistance() const                 {return distance;} ;
-        void setDistance (int distance_)        {distance = distance_;} ;
-        Point getSize() const                   {return size;} ;
-        void setSize (Point size_)              {size = size_;} ;
-        Point getLocation() const               {return location;} ;
-        void setLocation (Point location_)      {location = location_;} ;
-        Point getDirection() const              {return direction;} ;
-        void setDirection (Point direction_)    {direction = direction_;} ;
-        Blocktype getBlocktype() const          {return blocktype;} ;
-        void setBlocktype (Blocktype blocktype) {blocktype = blocktype;_};
+        int getExample() const                   {return example;} ;
+        void setExample (int example_)           {example = example_;} ;
+        int getDistance() const                  {return distance;} ;
+        void setDistance (int distance_)         {distance = distance_;} ;
+        Point getSize() const                    {return size;} ;
+        void setSize (Point size_)               {size = size_;} ;
+        Point getLocation() const                {return location;} ;
+        void setLocation (Point location_)       {location = location_;} ;
+        Point getDirection() const               {return direction;} ;
+        void setDirection (Point direction_)     {direction = direction_;} ;
+        Blocktype getBlocktype() const           {return blocktype;} ;
+        void setBlocktype (Blocktype blocktype_) {blocktype = blocktype_;};
 
 
     private:

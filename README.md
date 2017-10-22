@@ -1,6 +1,9 @@
 # Ditching-Ball
 A senseless hopefully funny game - version 2 :P 
 
+[![Build Status](https://travis-ci.org/gitdev1234/Ditching-Ball.svg?branch=master)](https://travis-ci.org/gitdev1234/Ditching-Ball)
+[![Coverage Status](https://coveralls.io/repos/github/gitdev1234/Ditching-Ball/badge.svg?branch=master)](https://coveralls.io/github/gitdev1234/Ditching-Ball?branch=master)
+
 Attention this code is just funny hacking style..
 
 ## Testing
